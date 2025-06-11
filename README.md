@@ -13,6 +13,7 @@ Simple REST Task API that allows for manipulating tasks.
 ### Requirements
 
 - Python 3.7+
+- Python-pip
 - FastAPI
 - Uvicorn (included with fastapi[standard])
 - curl (for testing/using the API)
