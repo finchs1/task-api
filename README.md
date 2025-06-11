@@ -55,3 +55,5 @@ Delete task (replace taskTitle with title of task)
 
 ### Optionally, run unit tests for the list and create endpoints:
 `python test.py`
+
+No output for the test indicates success.
