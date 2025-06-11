@@ -8,7 +8,45 @@ Simple REST Task API that allows for manipulating tasks.
 
 - FastAPI for API endpoints as well as unit tests.
 - Allows tasks to be listed, created, deleted, and set as completed.
-- Saves and loads tasks to a json file in the same directory.
+- Saves and loads tasks to the tasks.json file.
+
+### API Endpoints
+
+API is by default on port 8000.
+
+List all tasks:\
+GET /tasks\
+Response: All tasks (json)\
+Example Responses:\
+200 {"detail":"success", "Clean dishes" : {"title": "Clean dishes", "description" : "Clean the dishes before tomorrow", completed: false}}\
+200 {"detail":"success"}
+
+
+Create task:\
+POST /tasks with json data that includes title and description\
+Task titles cannot be duplicates\
+Response: detail message with task created if successful, otherwise just detail message (json)\
+Example: POST /tasks {"title": "Clean dishes", "description" : "Clean the dishes before tomorrow"}\
+Example Responses:\
+201 {"detail":"success", "Clean dishes" : {"title": "Clean dishes", "description" : "Clean the dishes before tomorrow", completed: false}}\
+409 {"detail":"Task 't' already exists"}
+
+
+Set task as complete:\
+PUT /tasks/{tasktitle}\
+Example: PUT "/tasks/Clean dishes"\
+Example Responses:\
+200 {"detail":"success", "Clean dishes" : {"title": "Clean dishes", "description" : "Clean the dishes before tomorrow", completed: true}}\
+409 {"detail":"Task 'Clean dishes' already marked as completed"}\
+404 {"detail":"Task 't' does not exist"}
+
+
+Delete a task:\
+DELETE /tasks/{tasktitle}\
+Example: DELETE "/tasks/Clean dishes"\
+Example Responses:\
+200 {"detail":"success"}\
+404 {"detail":"Task 't' does not exist"}
 
 ### Requirements
 
@@ -53,7 +91,7 @@ Delete task (replace taskTitle with title of task)
 
 `curl -X DELETE http://localhost:8000/tasks/taskTitle`
 
-### Optionally, run unit tests for the list and create endpoints:
+### Optionally, run unit tests for the list endpoint and create endpoint:
 `python test.py`
 
 No output for the test indicates success.
