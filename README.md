@@ -34,7 +34,7 @@ Example Responses:\
 
 Set task as complete:\
 PUT /tasks/{tasktitle}\
-Example: PUT "/tasks/Clean dishes"\
+Example: PUT "/tasks/Clean%20dishes"\
 Example Responses:\
 200 {"detail":"success", "Clean dishes" : {"title": "Clean dishes", "description" : "Clean the dishes before tomorrow", completed: true}}\
 409 {"detail":"Task 'Clean dishes' already marked as completed"}\
@@ -43,7 +43,7 @@ Example Responses:\
 
 Delete a task:\
 DELETE /tasks/{tasktitle}\
-Example: DELETE "/tasks/Clean dishes"\
+Example: DELETE "/tasks/Clean%20dishes"\
 Example Responses:\
 200 {"detail":"success"}\
 404 {"detail":"Task 't' does not exist"}
