@@ -77,19 +77,19 @@ To manually test the API, curl can be used as so:
 
 Get all tasks from API
 
-`curl -X GET http://localhost:8000/tasks`
+`curl -X GET "http://localhost:8000/tasks"`
 
 Add task
 
-`curl -X POST http://localhost:8000/tasks --json '{"title": "taskTitle", "description" : "Task description"}'`
+`curl -X POST "http://localhost:8000/tasks" --json '{"title": "taskTitle", "description" : "Task description"}'`
 
 Set task as completed (replace taskTitle with title of task)
 
-`curl -X PUT http://localhost:8000/tasks/taskTitle`
+`curl -X PUT "http://localhost:8000/tasks/taskTitle"`
 
 Delete task (replace taskTitle with title of task)
 
-`curl -X DELETE http://localhost:8000/tasks/taskTitle`
+`curl -X DELETE "http://localhost:8000/tasks/taskTitle"`
 
 ### Optionally, run unit tests for the list endpoint and create endpoint:
 `python test.py`
